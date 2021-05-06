@@ -1,5 +1,6 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Forecast from "./components/Forecast";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <h1>React Weather App</h1>
       </header>
       <main>
-        {/* add weather fetching component */}
+        <Forecast />
       </main>
       <footer>
         Page created by yournamehere

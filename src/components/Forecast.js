@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 const Forecast = () => {
     let [responseObj, setResponseObj] = useState({});
     function getForecast() {
-        let q = null;
-        fetch("https://community-open-weather-map.p.rapidapi.com/forecast?q=" + q, {
+        let q = "Stockholm";
+
+
+        //uses https://cors-anywhere.herokuapp.com/ to bypass cors issue i had
+        fetch("https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?q=" + q + "&appid=d8e34de0dfb02452b0c0b474fbb322ae", {
             "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "34b31d56famshea9d26710c2195ap10eb3bjsn380b5003eb65",
-                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Origin': '',
+                'Host': 'api.openweathermap.org'
             }
         })
+            .then(response => response.json())
             .then(response => {
-                console.log(response);
+                setResponseObj(response)
             })
             .catch(err => {
                 console.error(err);

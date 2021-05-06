@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
-import Forecast from "./components/Forecast";
+import Forecast from "./components/Forecast/Forecast";
+import Weather from "./components/Weather/Weather";
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,6 +12,7 @@ function App() {
       </header>
       <main>
         <Forecast />
+        <Weather />
       </main>
       <footer>
         Page created by yournamehere

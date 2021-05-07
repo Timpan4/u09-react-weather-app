@@ -3,15 +3,30 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #282c34;
+  box-sizing: border-box;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
+
 main {
+  box-sizing: border-box;
   flex-grow: 1;
   text-align: center;
-  padding: 25px;
+}
+
+.bottom {
+  margin-top: 155%;
+}
+
+.Center {
+  position: relative;
+  transform: translate(-50%);
+  left: 50%
 }
 
 footer {
+  box-sizing: border-box;
   padding: 2px;
   min-height: 100px;
   display: flex;
@@ -23,5 +38,6 @@ footer {
 }
 
 header {
+  box-sizing: border-box;
   padding: 25px;
 }

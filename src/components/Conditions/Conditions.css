@@ -1,0 +1,11 @@
+.smallForecast {
+    width: 20vw;
+    background: white;
+    box-sizing: border-box;
+    border: 2px solid black;
+    float: left;
+}
+
+.Conditions {
+    width: 100%;
+}

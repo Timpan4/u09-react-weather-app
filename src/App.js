@@ -11,8 +11,8 @@ function App() {
         <h1>React Weather App</h1>
       </header>
       <main>
-        <Forecast />
         <Weather />
+        <Forecast />
       </main>
       <footer>
         Page created by yournamehere

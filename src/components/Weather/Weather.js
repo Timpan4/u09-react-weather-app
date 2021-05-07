@@ -1,10 +1,10 @@
 
 import React, { useState } from "react";
+import './Weather.css';
 
 const Weather = () => {
     let [responseObj, setResponseObj] = useState({});
-    var theUnit = "metric";
-    var loaded = true;
+    var theUnit;
     var latitude, longitude;
     function setPos(lat, lon) {
         latitude = lat;
@@ -39,7 +39,7 @@ const Weather = () => {
     }
 
     return (
-        < div >
+        < div class="Weather">
 
             {navigator.geolocation.getCurrentPosition(function (position) {
                 setPos(position.coords.latitude, position.coords.longitude);
@@ -53,21 +53,35 @@ const Weather = () => {
             }
             <h2>Current Weather Conditions</h2>
 
-            {responseObj.cod == 200 && responseObj !== undefined ?
 
-                <p>Sunrise:   {new Date(responseObj.sys.sunrise * 1000).toLocaleString()}</p>
-                : null}
-            {responseObj.cod == 200 && responseObj !== undefined ?
+            <div class={responseObj.cod == 200 && responseObj !== undefined ? "Current Center" : "Current Hidden"}>
+                <h3> {responseObj.cod == 200 && responseObj !== undefined ? "Your city: " + responseObj.name : null} </h3>
+                {responseObj.cod == 200 && responseObj !== undefined ?
 
-                <p>Sunset: {new Date(responseObj.sys.sunset * 1000).toLocaleString()}</p>
-                : null}
-            {responseObj.cod == 200 && responseObj !== undefined ?
-                < div >
-                    <p>It is currently {Math.round(10 * responseObj.main.temp) / 10} degrees out with {responseObj.weather[0].description}.</p>
-                    <p>It feels like {Math.round(10 * responseObj.main.feels_like) / 10}</p>
-                </div>
-                : null}
-            <p>Choose unit to display current weather</p>
+                    <p>Sunrise:   {new Date(responseObj.sys.sunrise * 1000).toLocaleString()}</p>
+                    : null}
+                {responseObj.cod == 200 && responseObj !== undefined ?
+
+                    <p>Sunset: {new Date(responseObj.sys.sunset * 1000).toLocaleString()}</p>
+                    : null}
+                {responseObj.cod == 200 && responseObj !== undefined ?
+
+                    <p>{"Wind speed: " + responseObj.wind.speed}</p>
+                    : null}
+                {responseObj.cod == 200 && responseObj !== undefined ?
+
+                    <p>{"Humidity: " + responseObj.main.humidity}</p>
+                    : null}
+                {responseObj.cod == 200 && responseObj !== undefined ?
+                    < div >
+                        <p>It is currently {Math.round(10 * responseObj.main.temp) / 10} degrees out with {responseObj.weather[0].description}.</p>
+                        <p>It feels like {Math.round(10 * responseObj.main.feels_like) / 10}</p>
+                    </div>
+                    : null}
+                <p>
+                    {theUnit != undefined ? "Current selected unit: " + theUnit : null}</p>
+            </div>
+            <p>Choose unit to display current weather. </p>
             <button onClick={() => units("metric")}>Celcius</button>
             <button onClick={() => units("imperial")}>Fahrenheit</button>
         </div >

@@ -1,0 +1,31 @@
+.Weather {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: left;
+    background: #a0a0a0;
+    width: 80vw;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    min-height: 18vh;
+}
+
+.Current {
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: #FFFFFF;
+    padding: 1%;
+
+    width: 90%;
+    text-align: center;
+}
+
+.Hidden {
+    display: none;
+}
+
+.Selected {
+    background-color: #a0a0a0;
+}
